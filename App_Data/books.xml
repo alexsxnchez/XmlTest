@@ -17,14 +17,6 @@
       <firstname>George</firstname>
     </author>
   </book>
-  <book>
-    <id>0003</id>
-    <title>IT</title>
-    <author>
-      <firstname>Stephen</firstname>
-      <lastname>King</lastname>
-    </author>
-  </book>
 </books>
 <!--editor>
       <firstname>John</firstname>

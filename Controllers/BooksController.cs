@@ -20,14 +20,16 @@ namespace XmlTest.Controllers
             {
                 doc.Load(path);
                 XmlNodeList books = doc.GetElementsByTagName("book");
-                XmlNodeList authors = doc.GetElementsByTagName("author");
 
                 foreach (XmlElement b in books)
                 {
                     Models.Book book = new Models.Book();
                     book.Id = Int32.Parse(b.GetElementsByTagName("id")[0].InnerText);
                     book.Title = b.GetElementsByTagName("title")[0].InnerText;
-                    //book.AuthorTitle = b.GetAttribute("title");
+                    book.AuthorTitle = b.GetElementsByTagName("author")[0].InnerText;
+                    var authortitle = ((XmlElement)b.GetElementsByTagName("author")[0]).GetAttribute("title");
+                    book.AuthorTitle = authortitle;
+                    //book.MiddleName = b.GetElementsByTagName("middlename")[0].InnerText;
                     book.FirstName = b.GetElementsByTagName("firstname")[0].InnerText;
                     book.LastName = b.GetElementsByTagName("lastname")[0].InnerText;
 

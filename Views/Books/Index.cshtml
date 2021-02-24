@@ -12,21 +12,23 @@
         <tr>
             <th>Id</th>
             <th>Book Title</th>
-            <!--<th>Authors Title</th>-->
+            <th>Authors Title</th>
             <th>Authors First Name</th>
+            <!--<th>Authors Middle Name</th>-->
             <th>Authors Last Name</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var item in Model)
         {
-            <tr>
-                <td>@Html.DisplayFor(m => item.Id)</td>
-                <td>@Html.DisplayFor(m => item.Title)</td>
-                <!--<td>Html.DisplayFor(m => item.AuthorTitle)</td>-->
-                <td>@Html.DisplayFor(m => item.FirstName)</td>
-                <td>@Html.DisplayFor(m => item.LastName)</td>
-            </tr>
+        <tr>
+            <td>@Html.DisplayFor(m => item.Id)</td>
+            <td>@Html.DisplayFor(m => item.Title)</td>
+            <td>@Html.DisplayFor(m => item.AuthorTitle)</td>
+            <td>@Html.DisplayFor(m => item.FirstName)</td>
+            <!--<td>Html.DisplayFor(m => item.MiddleName)</td>-->
+            <td>@Html.DisplayFor(m => item.LastName)</td>
+        </tr>
         }
     </tbody>
 </table>
