@@ -29,7 +29,7 @@ namespace XmlTest.Controllers
                     book.AuthorTitle = b.GetElementsByTagName("author")[0].InnerText;
                     var authortitle = ((XmlElement)b.GetElementsByTagName("author")[0]).GetAttribute("title");
                     book.AuthorTitle = authortitle;
-                    var middle = ((XmlElement)b.GetElementsByTagName("middlename")[0]);
+                    var middle = b.GetElementsByTagName("middlename")[0];
                     if(middle != null) { book.MiddleName = middle.InnerText; }
                     book.FirstName = b.GetElementsByTagName("firstname")[0].InnerText;
                     book.LastName = b.GetElementsByTagName("lastname")[0].InnerText;
@@ -91,7 +91,7 @@ namespace XmlTest.Controllers
             //
             XmlNode id = doc.CreateElement("id");
             int id1 = doc.GetElementsByTagName("id").Count;
-            id.InnerText = ("000" + id1 + 1).ToString();
+            id.InnerText = (id1 + 1).ToString();
             //
             XmlNode title = doc.CreateElement("title");
             title.InnerText = newBook.Title;
@@ -99,11 +99,15 @@ namespace XmlTest.Controllers
             XmlNode author = doc.CreateElement("author");
             XmlNode firstname = doc.CreateElement("firstname");
             firstname.InnerText = newBook.FirstName;
+            XmlNode middlename = doc.CreateElement("middlename");
+            middlename.InnerText = newBook.MiddleName;
             XmlNode lastname = doc.CreateElement("lastname");
             lastname.InnerText = newBook.LastName;
-            //XmlAttribute title = doc.CreateAttribute("title");
-            //title.Value = newBook.AuthorTitle;
-            //author.Attributes.Append(title);
+
+            XmlAttribute atitle = doc.CreateAttribute("title");
+            atitle.Value = newBook.AuthorTitle;
+            author.Attributes.Append(atitle);
+
             author.AppendChild(firstname);
             author.AppendChild(lastname);
             //Append all to book

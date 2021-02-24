@@ -17,6 +17,22 @@
       <firstname>George</firstname>
     </author>
   </book>
+  <book>
+    <id>3</id>
+    <title>ITw</title>
+    <author title="Madamw">
+      <firstname>Alexisw</firstname>
+      <lastname>Arevalow</lastname>
+    </author>
+  </book>
+  <book>
+    <id>4</id>
+    <title>IT</title>
+    <author title="Madam">
+      <firstname>Alexis</firstname>
+      <lastname>Arevalo</lastname>
+    </author>
+  </book>
 </books>
 <!--editor>
       <firstname>John</firstname>
