@@ -29,7 +29,8 @@ namespace XmlTest.Controllers
                     book.AuthorTitle = b.GetElementsByTagName("author")[0].InnerText;
                     var authortitle = ((XmlElement)b.GetElementsByTagName("author")[0]).GetAttribute("title");
                     book.AuthorTitle = authortitle;
-                    //book.MiddleName = b.GetElementsByTagName("middlename")[0].InnerText;
+                    var middle = ((XmlElement)b.GetElementsByTagName("middlename")[0]);
+                    if(middle != null) { book.MiddleName = middle.InnerText; }
                     book.FirstName = b.GetElementsByTagName("firstname")[0].InnerText;
                     book.LastName = b.GetElementsByTagName("lastname")[0].InnerText;
 
@@ -90,7 +91,7 @@ namespace XmlTest.Controllers
             //
             XmlNode id = doc.CreateElement("id");
             int id1 = doc.GetElementsByTagName("id").Count;
-            id.InnerText = (id1 + 1).ToString();
+            id.InnerText = ("000" + id1 + 1).ToString();
             //
             XmlNode title = doc.CreateElement("title");
             title.InnerText = newBook.Title;
