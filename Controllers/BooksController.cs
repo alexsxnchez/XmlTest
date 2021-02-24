@@ -26,7 +26,6 @@ namespace XmlTest.Controllers
                 {
                     Models.Book book = new Models.Book();
                     book.Id = Int32.Parse(b.GetElementsByTagName("id")[0].InnerText);
-                    Console.WriteLine(book.Id);
                     book.Title = b.GetElementsByTagName("title")[0].InnerText;
                     //book.AuthorTitle = b.GetAttribute("title");
                     book.FirstName = b.GetElementsByTagName("firstname")[0].InnerText;
@@ -87,10 +86,9 @@ namespace XmlTest.Controllers
         {
             XmlElement book = doc.CreateElement("book");
             //
-            var maxId = doc.SelectNodes("id").Cast<XmlNode>().Max(node => int.Parse(node.InnerText));
-
             XmlNode id = doc.CreateElement("id");
-            id.InnerText = newBook.Id.ToString();
+            int id1 = doc.GetElementsByTagName("id").Count;
+            id.InnerText = (id1 + 1).ToString();
             //
             XmlNode title = doc.CreateElement("title");
             title.InnerText = newBook.Title;
